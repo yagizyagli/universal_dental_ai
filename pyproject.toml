@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "universal_dental_ai"
+version = "0.1.0"
+description = "A state-of-the-art, open-source Python library for medical-grade dental radiography analysis."
+readme = "README.md"
+authors = [
+    { name = "Yağız Yağlı", email = "yagizyagli3447@gmail.com" }
+]
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Healthcare Industry",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+keywords = ["dental", "radiography", "ai", "panoramic", "xray", "odontogram", "medical-imaging"]
+dependencies = [
+    "numpy>=1.21.0",
+    "opencv-python>=4.5.0",
+    "pydicom>=2.3.0",
+    "pydantic>=2.0.0",
+    "reportlab>=4.0.0",
+    "onnxruntime>=1.14.0",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/yagizyagli"
+Bug-Tracker = "https://github.com/yagizyagli/universal_dental_ai/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
