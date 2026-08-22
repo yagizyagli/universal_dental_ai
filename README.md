@@ -51,7 +51,7 @@ The library processes raw radiography streams through a strict, decoupled 5-stag
 Clone the repository and install the library in editable development mode:
 
 ```bash
-git clone https://github.com/universal_dental_ai.git
+git clone https://github.com
 cd universal_dental_ai
 pip install -r requirements.txt
 pip install -e .
