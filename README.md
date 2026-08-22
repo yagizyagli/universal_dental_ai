@@ -6,7 +6,7 @@ A state-of-the-art, open-source Python library for medical-grade dental radiogra
 
 ## 👑 Architect & Author
 This project is completely designed, developed, and maintained by:
-*   **Yağız Yağlı** (GitHub:[@yagizyagli](https://github.com/yagizyagli)
+*   **Yağız Yağlı** ([@yagizyagli](https://github.com/yagizyagli))
 
 ---
 
