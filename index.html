@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Dental AI</title>
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="font-bold text-xl tracking-tight text-blue-400">Universal Dental AI Docs</span>
+            <div class="space-x-4 text-sm font-medium">
+                <a href="#architecture" class="hover:text-blue-400 transition">Core Architecture</a>
+                <a href="#quickstart" class="hover:text-blue-400 transition">Quick Start</a>
+                <a href="#validation" class="hover:text-blue-400 transition">Doctor Validation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white py-16 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl font-extrabold sm:text-5xl mb-4">Universal Medical-Grade Dental AI</h1>
+            <p class="text-lg text-slate-300 mb-6">A high-precision, open-source framework designed for 32-tooth radiographic image processing, automatic FDI numbering, and secure validation tracking.</p>
+            <div class="flex justify-center gap-4">
+                <span class="bg-blue-600/30 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full text-xs font-semibold">Version 0.1.0</span>
+                <span class="bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-semibold">Apache 2.0 Licensed</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="md:col-span-1 hidden md:block">
+            <div class="sticky top-24 space-y-2">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Getting Started</h3>
+                <a href="#installation" class="block py-1 text-sm text-slate-600 hover:text-blue-600 font-medium">Installation</a>
+                <a href="#architecture" class="block py-1 text-sm text-slate-600 hover:text-blue-600 font-medium">Core Architecture</a>
+                <a href="#quickstart" class="block py-1 text-sm text-slate-600 hover:text-blue-600 font-medium">Quick Start Guide</a>
+                <a href="#validation" class="block py-1 text-sm text-slate-600 hover:text-blue-600 font-medium">Doctor Validation Workflow</a>
+            </div>
+        </aside>
+
+        <!-- Documentation Blocks -->
+        <section class="md:col-span-3 space-y-12">
+            
+            <!-- Installation -->
+            <div id="installation" class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
+                <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2 border-slate-100">Library Installation</h2>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Ensure you have Python >= 3.8 installed. Run the following installation commands inside your terminal to sync core image processing libraries:</p>
+                <pre class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs font-mono overflow-x-auto">pip install -r requirements.txt&#10;pip install -e .</pre>
+            </div>
+
+            <!-- Architecture -->
+            <div id="architecture" class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
+                <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2 border-slate-100">Core Architecture Pipelines</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                        <h4 class="font-bold text-sm text-slate-900 mb-1">1. DentalDicomReader</h4>
+                        <p class="text-xs text-slate-600">Loads clinical DICOM files and instantly masks patient demographic fields for strict KVKK/GDPR compliance.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                        <h4 class="font-bold text-sm text-slate-900 mb-1">2. DentalImagePreprocessor</h4>
+                        <p class="text-xs text-slate-600">Applies localized CLAHE contrast boosters and edge-preserving filters to draw micro-caries patterns cleanly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quickstart -->
+            <div id="quickstart" class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
+                <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2 border-slate-100">Programmatic Quick Start</h2>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Executing an automated 32-tooth radiology pass and initializing a signed verification tracking process:</p>
+                <pre class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs font-mono overflow-x-auto">from universal_dental_ai.core import DentalDicomReader, DentalInferenceEngine&#10;&#10;reader = DentalDicomReader()&#10;pixels, patient_meta, tech_meta = reader.read_secure_pipeline("xray.dcm")&#10;&#10;engine = DentalInferenceEngine()&#10;findings = engine.predict_radiograph(pixels)</pre>
+            </div>
+
+            <!-- Validation -->
+            <div id="validation" class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
+                <h2 class="text-2xl font-bold mb-4 text-slate-900 border-b pb-2 border-slate-100">Doctor Validation Workflow</h2>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">The library implements an immutable <code>FindingStatus</code> architecture. Predictions remain locked as <code>AI_PROPOSED</code> until a dentist modifies or approves the coordinates, shifting states to <code>DOCTOR_APPROVED</code> or <code>DOCTOR_REJECTED</code>. PDF builders discard any rejected entities automatically.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-24 border-t border-slate-800">
+        <p>&copy; 2026 Universal Dental AI Project. Open-source under the Apache License 2.0.</p>
+    </footer>
+
+</body>
+</html>
