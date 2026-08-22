@@ -216,3 +216,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+# ==============================================================================
+# UNIVERSAL DENTAL AI CUSTOM CONFIGURATIONS
+# ==============================================================================
+
+# 1. Heavy Machine Learning Model Weights
+# Prevents giant weights from crashing or blocking Git operations
+src/universal_dental_ai/models/*.pt
+src/universal_dental_ai/models/*.pth
+src/universal_dental_ai/models/*.onnx
+src/universal_dental_ai/models/*.h5
+
+# 2. Sensitive Patient Radiographs and Clinical Data
+# Mandatory for HIPAA, GDPR, and KVKK compliance to protect patient privacy
+*.dcm
+*.pdf
+examples/outputs/
+
