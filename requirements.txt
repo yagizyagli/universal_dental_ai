@@ -1,0 +1,12 @@
+# --- Core Library Dependencies ---
+numpy>=1.21.0
+opencv-python>=4.5.0
+pydicom>=2.3.0
+pydantic>=2.0.0
+reportlab>=4.0.0
+onnxruntime>=1.14.0
+
+# --- Development and Testing Tools ---
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
