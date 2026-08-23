@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universal Dental AI - Clinical OS</title>
-    <!-- Tailwind CSS (Production Engine) -->
+    <!-- Tailwind CSS Core Production Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter -->
-    <link href="https://cdn.googleapis.com" rel="stylesheet">
-    <!-- FontAwesome Icons for Medical Realism -->
+    <!-- Google Fonts Inter Configuration Layout -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome Icons for Medical Realism Frameworks -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         body { font-family: 'Inter', sans-serif; }
         .cyber-glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.15); }
-        .neon-border { border-color: rgba(59, 130, 246, 0.3); }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-blue-500 selection:text-white">
@@ -21,7 +20,7 @@
     <!-- Top Glow Header Line -->
     <div class="h-1.5 w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400"></div>
 
-    <!-- Navigation Dashboard -->
+    <!-- Navigation Dashboard Panel -->
     <nav class="border-b border-slate-900 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -35,7 +34,6 @@
             </div>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
                 <a href="#simulator" class="hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-terminal text-xs"></i> Interactive Demo</a>
-                <a href="#features" class="hover:text-blue-400 transition flex items-center gap-1"><i class="fa-solid fa-layer-group text-xs"></i> Pipeline Architecture</a>
                 <a href="https://github.com" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-xs font-bold transition shadow-lg shadow-blue-600/20 flex items-center gap-1">
                     <i class="fa-brands fa-github text-sm"></i> Star on GitHub
                 </a>
@@ -50,14 +48,14 @@
                     Experience the <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Human-In-The-Loop</span> Workflow
                 </h1>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-                    Below is a live web presentation engine simulating our library's engine. Deploy the deep learning neural net to index 32 teeth, modify findings, and simulate medical PDF locking.
+                    Deploy fine-tuned neural models over standard dental panoramic radiographs with fully dynamic real-time target mapping layers.
                 </p>
             </div>
 
-            <!-- Dashboard Frame -->
-            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-6 cyber-glow backdrop-blur-xs grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Dashboard Frame Grid Configuration -->
+            <div class="bg-slate-900/40 border border-slate-900 rounded-2xl p-6 cyber-glow dashboard-grid grid grid-cols-1 lg:grid-cols-12 gap-8">
                 
-                <!-- Left: X-Ray Viewport -->
+                <!-- Left Container: Viewport Frame Monitor -->
                 <div class="lg:col-span-7 flex flex-col">
                     <div class="flex justify-between items-center mb-3">
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
@@ -66,43 +64,34 @@
                         <span id="viewport-status" class="text-[11px] font-mono text-blue-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded">STATUS: IDLE</span>
                     </div>
                     
-                    <div class="bg-slate-950 border border-slate-900 rounded-xl flex-1 min-h-[380px] relative overflow-hidden flex flex-col items-center justify-center group">
-                        <!-- Simulated AI Analysis Overlay Layer -->
-                        <div id="ai-boxes-overlay" class="absolute inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-500">
-                            <div class="absolute border-2 border-red-500 bg-red-500/10 text-[9px] font-mono font-bold text-red-400 px-1 py-0.5 top-[40%] left-[25%] rounded shadow-lg animate-pulse">
-                                FDI Tooth 16: CARIES DETECTED (94.5%)
-                            </div>
-                            <div class="absolute border-2 border-amber-500 bg-amber-500/10 text-[9px] font-mono font-bold text-amber-400 px-1 py-0.5 top-[65%] left-[72%] rounded shadow-lg">
-                                FDI Tooth 48: HORIZONTAL IMPACTION (98.2%)
-                            </div>
-                            <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:100%_4px] pointer-events-none"></div>
-                        </div>
+                    <!-- Dynamic Layer Box Container -->
+                    <div id="viewport-container" class="bg-slate-950 border border-slate-900 rounded-xl flex-1 min-h-[380px] relative overflow-hidden flex flex-col items-center justify-center group">
+                        
+                        <!-- ALL STATIC HARDCODED BOX OVERLAYS REMOVED: Injected via dynamic JS vectors -->
+                        <div id="ai-boxes-overlay" class="absolute inset-0 z-20 pointer-events-none opacity-0 transition-opacity duration-500"></div>
 
-                        <!-- Initial Upload Area Trigger -->
                         <div id="upload-prompt" class="text-center p-8 z-10 transition duration-300">
-                            <div class="h-16 w-16 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-slate-500 group-hover:text-blue-400 group-hover:border-blue-900 transition-colors">
+                            <div class="h-16 w-16 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-slate-500">
                                 <i class="fa-solid fa-cloud-arrow-up text-2xl"></i>
                             </div>
-                            <p class="text-sm font-semibold mb-1 text-slate-300">Simulate Radiograph Upload</p>
+                            <p class="text-sm font-semibold mb-1 text-slate-300">Upload Real Radiograph</p>
                             <p class="text-xs text-slate-500 max-w-xs mx-auto mb-4">Accepts dental panoramic radiography or raw medical DICOM streams</p>
                             <button onclick="runSimulation()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-4 py-2 rounded-lg text-xs font-bold transition border border-slate-700">
-                                Load Sample Panoramic X-Ray
+                                Select Panoramic X-Ray File
                             </button>
                         </div>
 
-                        <!-- Matrix Image Renderer -->
-                        <img id="xray-viewport-img" src="" class="absolute inset-0 w-full h-full object-cover hidden opacity-40 transition-all duration-700">
+                        <img id="xray-viewport-img" src="" class="absolute inset-0 w-full h-full object-cover hidden transition-all duration-700">
                     </div>
                 </div>
-                <!-- Right: Clinical Management Controller Panels -->
+                <!-- Right Container: Control Panel Dashboard -->
                 <div class="lg:col-span-5 flex flex-col justify-between">
                     <div>
                         <div class="border-b border-slate-900 pb-3 mb-4">
                             <h3 class="font-bold text-sm text-slate-200 flex items-center gap-1.5"><i class="fa-solid fa-gears text-blue-500"></i> Automation Control Center</h3>
-                            <p class="text-[11px] text-slate-500">Interactive testing suite for universal_dental_ai workflows.</p>
+                            <p class="text-[11px] text-slate-500">Active monitoring suite tracking human-in-the-loop validation metrics.</p>
                         </div>
 
-                        <!-- Workflow Progress Tracking -->
                         <div class="space-y-3 mb-6">
                             <div id="step-dicom" class="flex items-center gap-3 text-slate-600 transition-colors duration-300">
                                 <div class="w-5 h-5 rounded-full border border-current flex items-center justify-center text-[10px] font-bold">1</div>
@@ -118,47 +107,12 @@
                             </div>
                         </div>
 
-                        <!-- Real-time Doctor Verification Card Board -->
+                        <!-- Dynamic Target Card Dashboard Container -->
                         <div id="verification-card-board" class="space-y-3 hidden">
-                            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">Pending Doctor Validation List</span>
-                            
-                            <!-- Finding Card Item 1 -->
-                            <div id="finding-card-1" class="bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="bg-red-500/10 text-red-400 px-1.5 py-0.5 rounded text-[10px] font-bold">TOOTH 16</span>
-                                            <span class="text-xs font-semibold text-slate-200">CARIES PATTERN</span>
-                                        </div>
-                                        <p class="text-[11px] text-slate-400 mt-1">AI confidence verification score bounds computed at: 94.5%</p>
-                                    </div>
-                                    <span id="badge-status-1" class="text-[9px] uppercase tracking-wider border border-blue-900 bg-blue-950/60 text-blue-400 font-bold px-1.5 py-0.5 rounded">AI Proposed</span>
-                                </div>
-                                <div class="flex gap-2 justify-end">
-                                    <button onclick="approveFinding(1)" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-check"></i> Approve</button>
-                                    <button onclick="rejectFinding(1)" class="bg-slate-800 hover:bg-red-950 hover:text-red-400 text-slate-300 px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-trash-can"></i> Overrule</button>
-                                </div>
-                            </div>
-
-                            <!-- Finding Card Item 2 -->
-                            <div id="finding-card-2" class="bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="bg-amber-500/10 text-amber-400 px-1.5 py-0.5 rounded text-[10px] font-bold">TOOTH 48</span>
-                                            <span class="text-xs font-semibold text-slate-200">IMPACTED MOLAR</span>
-                                        </div>
-                                        <p class="text-[11px] text-slate-400 mt-1">AI confidence verification score bounds computed at: 98.2%</p>
-                                    </div>
-                                    <span id="badge-status-2" class="text-[9px] uppercase tracking-wider border border-blue-900 bg-blue-950/60 text-blue-400 font-bold px-1.5 py-0.5 rounded">AI Proposed</span>
-                                </div>
-                                <div class="flex gap-2 justify-end">
-                                    <button onclick="approveFinding(2)" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-check"></i> Approve</button>
-                                    <button onclick="rejectFinding(2)" class="bg-slate-800 hover:bg-red-950 hover:text-red-400 text-slate-300 px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-trash-can"></i> Overrule</button>
-                                </div>
-                            </div>
+                            <!-- Injected dynamically via script runtime execution loops -->
                         </div>
                     </div>
+
                     <div class="mt-6 pt-4 border-t border-slate-900">
                         <button id="pdf-download-btn" disabled onclick="downloadPdfSimulated()" class="w-full bg-slate-800 text-slate-500 py-3 rounded-xl text-sm font-bold tracking-wide transition cursor-not-allowed flex items-center justify-center gap-2">
                             <i class="fa-solid fa-lock"></i> Authorize & Compile Clinical Report PDF
@@ -167,178 +121,199 @@
                 </div>
             </div>
         </section>
-
-        <!-- Pipeline Specs Features Section -->
-        <section id="features" class="border-t border-slate-900 pt-16">
-            <h2 class="text-xl font-bold uppercase tracking-widest text-blue-500 mb-8 flex items-center gap-2">
-                <i class="fa-solid fa-shield-halved"></i> Engineering Pipeline Specifications
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-900/20 border border-slate-900 p-6 rounded-xl">
-                    <div class="text-blue-500 text-xl mb-3"><i class="fa-solid fa-user-shield"></i></div>
-                    <h4 class="font-bold text-base mb-1.5 text-white">DentalDicomReader</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Scrubs patient identity header strings in raw memory states. Zero leaks of demographic markers outside hospital boundaries, maintaining 100% compliance configurations.</p>
-                </div>
-                <div class="bg-slate-900/20 border border-slate-900 p-6 rounded-xl">
-                    <div class="text-cyan-500 text-xl mb-3"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h4 class="font-bold text-base mb-1.5 text-white">DentalImagePreprocessor</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Executes regional histogram equalizers (CLAHE) coupled with bilateral spatial smoothing algorithms to reveal internal enamel lesion maps with surgical clarity.</p>
-                </div>
-                <div class="bg-slate-900/20 border border-slate-900 p-6 rounded-xl">
-                    <div class="text-indigo-500 text-xl mb-3"><i class="fa-solid fa-network-wired"></i></div>
-                    <h4 class="font-bold text-base mb-1.5 text-white">DentalInferenceEngine</h4>
-                    <p class="text-xs text-slate-400 leading-relaxed">Compiles multi-class structural segmentation tasks. Harnesses ONNX architectures to index 32 anatomical target points into sequential dental quadrants flawlessly.</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="bg-slate-950 border-t border-slate-900 text-slate-500 py-6 text-center text-xs mt-12">
         <p>&copy; 2026 Universal Dental AI Framework. Distributed transparently under the Apache License 2.0.</p>
     </footer>
-
-    <!-- Interactive Simulator JS Core -->
+    <!-- Core Scripting Module Engine Configuration -->
     <script>
-     // Global pipeline control configuration state indicators
-let currentReportData = null;
-const API_BASE_URL = window.location.origin; // Dynamically routes to the active FastAPI local/codespace port
+        let currentReportData = null;
+        const API_BASE_URL = window.location.origin;
 
-async function runSimulation() {
-    const status = document.getElementById("viewport-status");
-    const prompt = document.getElementById("upload-prompt");
-    const img = document.getElementById("xray-viewport-img");
-    
-    // Initialize file pipeline triggers
-    const fileInput = document.createElement("input");
-    fileInput.type = "file";
-    fileInput.accept = ".png,.jpg,.jpeg,.dcm";
-    
-    fileInput.onchange = async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+        async function runSimulation() {
+            const status = document.getElementById("viewport-status");
+            const prompt = document.getElementById("upload-prompt");
+            const img = document.getElementById("xray-viewport-img");
+            
+            const fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.accept = ".png,.jpg,.jpeg,.dcm";
+            
+            fileInput.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
 
-        status.innerText = "STATUS: INGESTING PIPELINE...";
-        status.className = "text-[11px] font-mono text-amber-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
-        prompt.classList.add("opacity-0", "pointer-events-none");
+                status.innerText = "STATUS: INGESTING PIPELINE...";
+                status.className = "text-[11px] font-mono text-amber-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
+                prompt.classList.add("opacity-0", "pointer-events-none");
 
-        // UI rendering preview optimization hooks
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            img.src = event.target.result;
-            img.classList.remove("hidden");
-        };
-        reader.readAsDataURL(file);
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    img.src = event.target.result;
+                    img.classList.remove("hidden");
+                };
+                reader.readAsDataURL(file);
 
-        // Package biological metadata frame inside standard Form Data structures
-        const formData = new FormData();
-        formData.append("file", file);
+                const formData = new FormData();
+                formData.append("file", file);
 
-        try {
-            // STEP 1 & 2: Pipeline execution feedback simulation logging loops
-            document.getElementById("step-dicom").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
-            document.getElementById("step-clahe").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
-            status.innerText = "STATUS: DEPLOYING NEURAL NET...";
+                try {
+                    document.getElementById("step-dicom").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+                    document.getElementById("step-clahe").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+                    status.innerText = "STATUS: DEPLOYING NEURAL NET...";
 
-            // Dispatch synchronous web request frames directly into our running production FastAPI app
-            const response = await fetch(`${API_BASE_URL}/api/v1/analyze`, {
-                method: "POST",
-                body: formData
+                    const response = await fetch(`${API_BASE_URL}/api/v1/analyze`, {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    if (!response.ok) throw new Error("FastAPI pipeline connection failure.");
+                    currentReportData = await response.json();
+                    
+                    document.getElementById("step-inference").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+                    status.innerText = "STATUS: PENDING VALIDATION";
+                    status.className = "text-[11px] font-mono text-red-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
+                    
+                    // RUNTIME LAYOUT GENERATION FROM LIVE RESPONSE Payne MATRIX
+                    renderDynamicDoctorCardsAndBoxes();
+                    updatePdfButtonState();
+
+                } catch (error) {
+                    status.innerText = "STATUS: PIPELINE EXCEPTION";
+                    status.className = "text-[11px] font-mono text-red-500 border border-red-900 bg-red-950/40 px-2 py-0.5 rounded";
+                    console.error(error);
+                }
+            };
+            fileInput.click();
+        }
+
+        function renderDynamicDoctorCardsAndBoxes() {
+            const board = document.getElementById("verification-card-board");
+            const overlay = document.getElementById("ai-boxes-overlay");
+            
+            board.innerHTML = `<span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">Pending Doctor Validation List</span>`;
+            overlay.innerHTML = ""; 
+            overlay.classList.remove("opacity-0");
+
+            if (!currentReportData || !currentReportData.findings || currentReportData.findings.length === 0) {
+                board.innerHTML += `<p class="text-xs text-slate-500 italic p-3">No active pathologies flagged by AI across the 32 teeth structure.</p>`;
+                return;
+            }
+
+            currentReportData.findings.forEach((finding, index) => {
+                const uniqueId = index + 1;
+                
+                // Inject dynamic doctor validation sidebar card rows
+                const cardHtml = `
+                    <div id="finding-card-${uniqueId}" class="bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="bg-blue-500/10 text-blue-400 px-1.5 py-0.5 rounded text-[10px] font-bold">TOOTH ${finding.tooth_number}</span>
+                                    <span class="text-xs font-semibold text-slate-200">${finding.pathology}</span>
+                                </div>
+                                <p class="text-[11px] text-slate-400 mt-1">AI confidence score bounds: ${(finding.confidence_score * 100).toFixed(1)}%</p>
+                            </div>
+                            <span id="badge-status-${uniqueId}" class="text-[9px] uppercase tracking-wider border border-blue-900 bg-blue-950/60 text-blue-400 font-bold px-1.5 py-0.5 rounded">AI Proposed</span>
+                        </div>
+                        <div class="flex gap-2 justify-end">
+                            <button onclick="approveLiveFinding(${uniqueId}, ${finding.tooth_number})" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-check"></i> Approve</button>
+                            <button onclick="rejectLiveFinding(${uniqueId}, ${finding.tooth_number})" class="bg-slate-800 hover:bg-red-950 hover:text-red-400 text-slate-300 px-2.5 py-1 rounded text-xs font-semibold transition flex items-center gap-1"><i class="fa-solid fa-trash-can"></i> Overrule</button>
+                        </div>
+                    </div>
+                `;
+                board.innerHTML += cardHtml;
+
+                // COMPUTE AND RENDER BOX OVERLAYS DIRECTLY FROM ACTIVE MATRIX RESPONSES
+                if (finding.bounding_box && finding.bounding_box.length === 4) {
+                    const [xmin, ymin, xmax, ymax] = finding.bounding_box;
+                    
+                    const top = (ymin / 1024) * 100;
+                    const left = (xmin / 2048) * 100;
+                    const width = ((xmax - xmin) / 2048) * 100;
+                    const height = ((ymax - ymin) / 1024) * 100;
+
+                    const boxNode = document.createElement("div");
+                    boxNode.id = `view-box-node-${uniqueId}`;
+                    boxNode.className = "absolute border-2 border-red-500 bg-red-500/10 text-[8px] font-mono font-bold text-red-400 px-1 py-0.5 rounded shadow-lg transition-all duration-300";
+                    boxNode.style.top = `${top}%`;
+                    boxNode.style.left = `${left}%`;
+                    boxNode.style.width = `${width}%`;
+                    boxNode.style.height = `${height}%`;
+                    boxNode.innerText = `FDI ${finding.tooth_number}: ${finding.pathology}`;
+                    
+                    overlay.appendChild(boxNode);
+                }
             });
 
-            if (!response.ok) throw new Error("FastAPI inference routing failure pipeline break.");
-
-            currentReportData = await response.json();
-            
-            // STEP 3: Successful payload assimilation validation check
-            document.getElementById("step-inference").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
-            document.getElementById("ai-boxes-overlay").classList.remove("opacity-0");
-            img.classList.remove("opacity-40"); // Clear processing masks
-            
-            status.innerText = "STATUS: PENDING VALIDATION";
-            status.className = "text-[11px] font-mono text-red-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
-            
-            // Trigger operational UI control panels into tracking modes
-            document.getElementById("verification-card-board").classList.remove("hidden");
-            updatePdfButtonState();
-
-        } catch (error) {
-            status.innerText = "STATUS: PIPELINE EXCEPTION";
-            status.className = "text-[11px] font-mono text-red-500 border border-red-900 bg-red-950/40 px-2 py-0.5 rounded";
-            console.error("API critical disconnection crash logs:", error);
+            board.classList.remove("hidden");
         }
-    };
 
-    fileInput.click();
-}
+        function updatePdfButtonState() {
+            const btn = document.getElementById("pdf-download-btn");
+            btn.removeAttribute("disabled");
+            btn.className = "w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold tracking-wide transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/20";
+            btn.innerHTML = `<i class="fa-solid fa-file-pdf"></i> Download Signed Clinical PDF Report`;
+            
+            const status = document.getElementById("viewport-status");
+            status.innerText = "STATUS: REPORT COMPILED";
+            status.className = "text-[11px] font-mono text-emerald-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
+        }
 
-function updatePdfButtonState() {
-    const btn = document.getElementById("pdf-download-btn");
-    btn.removeAttribute("disabled");
-    btn.className = "w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold tracking-wide transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/20";
-    btn.innerHTML = `<i class="fa-solid fa-file-pdf"></i> Download Signed Clinical PDF Report`;
-    
-    const status = document.getElementById("viewport-status");
-    status.innerText = "STATUS: REPORT COMPILED";
-    status.className = "text-[11px] font-mono text-emerald-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
-}
+        function approveLiveFinding(id, toothNumber) {
+            document.getElementById(`finding-card-${id}`).className = "bg-emerald-950/10 border border-emerald-900/50 rounded-xl p-3 flex flex-col justify-between gap-3 transition";
+            const badge = document.getElementById(`badge-status-${id}`);
+            badge.innerText = "Approved";
+            badge.className = "text-[9px] uppercase tracking-wider border border-emerald-800 bg-emerald-950/50 text-emerald-400 font-bold px-1.5 py-0.5 rounded";
+            
+            const boxNode = document.getElementById(`view-box-node-${id}`);
+            if (boxNode) boxNode.className = "absolute border-2 border-emerald-500 bg-emerald-500/10 text-[8px] font-mono font-bold text-emerald-400 px-1 py-0.5 rounded shadow-lg transition-all";
 
-async function approveFinding(id) {
-    if (!currentReportData) return;
-    const card = document.getElementById(`finding-card-${id}`);
-    const badge = document.getElementById(`badge-status-${id}`);
-    
-    card.className = "bg-emerald-950/10 border border-emerald-900/50 rounded-xl p-3 flex flex-col justify-between gap-3 transition";
-    badge.innerText = "Approved";
-    badge.className = "text-[9px] uppercase tracking-wider border border-emerald-800 bg-emerald-950/50 text-emerald-400 font-bold px-1.5 py-0.5 rounded";
+            currentReportData.findings.forEach(f => {
+                if (f.tooth_number === toothNumber) f.status = "DOCTOR_APPROVED";
+            });
+        }
 
-    // Update real Pydantic structural reference properties in local state scope
-    const targetTooth = id === 1 ? 16 : 48;
-    currentReportData.findings.forEach(f => {
-        if (f.tooth_number === targetTooth) f.status = "DOCTOR_APPROVED";
-    });
-}
+        function rejectLiveFinding(id, toothNumber) {
+            document.getElementById(`finding-card-${id}`).className = "bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition opacity-30 pointer-events-none";
+            
+            const boxNode = document.getElementById(`view-box-node-${id}`);
+            if (boxNode) boxNode.remove();
 
-async function rejectFinding(id) {
-    if (!currentReportData) return;
-    const card = document.getElementById(`finding-card-${id}`);
-    card.className = "bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition opacity-30 pointer-events-none";
+            currentReportData.findings.forEach(f => {
+                if (f.tooth_number === toothNumber) f.status = "DOCTOR_REJECTED";
+            });
+        }
 
-    const targetTooth = id === 1 ? 16 : 48;
-    currentReportData.findings.forEach(f => {
-        if (f.tooth_number === targetTooth) f.status = "DOCTOR_REJECTED";
-    });
-}
+        async function downloadPdfSimulated() {
+            if (!currentReportData) return;
+            try {
+                currentReportData.is_doctor_approved = true;
+                currentReportData.approved_by_doctor_name = "Dr. Yagiz Yagli, DDS";
+                currentReportData.diploma_number = "DIP-2026-9912";
 
-async function downloadPdfSimulated() {
-    if (!currentReportData) return;
-    
-    try {
-        // Enforce formal digital signature fields inside payload schemas
-        currentReportData.is_doctor_approved = true;
-        currentReportData.approved_by_doctor_name = "Dr. XX, DDS";
-        currentReportData.diploma_number = "DIP-2026-9912";
-
-        // Dispatch state array objects back down server infrastructure pipeline vectors
-        const response = await fetch(`${API_BASE_URL}/api/v1/report/compile`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
+                const response = await fetch(`${API_BASE_URL}/api/v1/report/compile`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
             body: JSON.stringify(currentReportData)
         });
 
-        if (!response.ok) throw new Error("PDF generator engine failed to render payload configurations.");
+        if (!response.ok) throw new Error("PDF generator engine failed to render execution schemas.");
 
         // Pipe downstream network streaming buffer variables directly into local system file downloads
         const pdfBlob = await response.blob();
         const downloadUrl = window.URL.createObjectURL(pdfBlob);
         const link = document.createElement("a");
         link.href = downloadUrl;
+        
+        // Generate dynamic file matching the target report master index layout smoothly
         link.download = `signed_report_${currentReportData.report_id}.pdf`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
     } catch (error) {
-        alert("CRITICAL ERROR: Failed to pipeline data array packages into PDF compilation engines.");
+        alert("CRITICAL ERROR: Failed to bundle files inside reporting vectors.");
         console.error(error);
     }
 }
