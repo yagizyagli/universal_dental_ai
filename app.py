@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 import cv2
 import numpy as np
+from fastapi.responses import HTMLResponse
 
 # Import our library modules compiled in the previous steps
 from universal_dental_ai.core.preprocessor import DentalImagePreprocessor
@@ -113,3 +114,12 @@ async def compile_report_pdf(report_data: DentalAnalysisReport):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"PDF engine failed to compile master layout: {str(e)}")
+
+
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend():
+    """Streams the main interactive dashboard directly to the browser root domain."""
+    index_path = os.path.join(os.path.dirname(__file__), "index.html")
+    with open(index_path, "r", encoding="utf-8") as f:
+        return f.read()

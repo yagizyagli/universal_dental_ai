@@ -199,84 +199,149 @@
 
     <!-- Interactive Simulator JS Core -->
     <script>
-        let isSimulationRunning = false;
-        let approvalCounts = 0;
+     // Global pipeline control configuration state indicators
+let currentReportData = null;
+const API_BASE_URL = window.location.origin; // Dynamically routes to the active FastAPI local/codespace port
 
-        function runSimulation() {
-            if (isSimulationRunning) return;
-            isSimulationRunning = true;
+async function runSimulation() {
+    const status = document.getElementById("viewport-status");
+    const prompt = document.getElementById("upload-prompt");
+    const img = document.getElementById("xray-viewport-img");
+    
+    // Initialize file pipeline triggers
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = ".png,.jpg,.jpeg,.dcm";
+    
+    fileInput.onchange = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-            const status = document.getElementById("viewport-status");
-            const prompt = document.getElementById("upload-prompt");
-            const img = document.getElementById("xray-viewport-img");
+        status.innerText = "STATUS: INGESTING PIPELINE...";
+        status.className = "text-[11px] font-mono text-amber-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
+        prompt.classList.add("opacity-0", "pointer-events-none");
+
+        // UI rendering preview optimization hooks
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            img.src = event.target.result;
+            img.classList.remove("hidden");
+        };
+        reader.readAsDataURL(file);
+
+        // Package biological metadata frame inside standard Form Data structures
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+            // STEP 1 & 2: Pipeline execution feedback simulation logging loops
+            document.getElementById("step-dicom").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+            document.getElementById("step-clahe").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+            status.innerText = "STATUS: DEPLOYING NEURAL NET...";
+
+            // Dispatch synchronous web request frames directly into our running production FastAPI app
+            const response = await fetch(`${API_BASE_URL}/api/v1/analyze`, {
+                method: "POST",
+                body: formData
+            });
+
+            if (!response.ok) throw new Error("FastAPI inference routing failure pipeline break.");
+
+            currentReportData = await response.json();
             
-            status.innerText = "STATUS: INGESTING DICOM...";
-            status.classList.replace("text-blue-400", "text-amber-400");
-            prompt.classList.add("opacity-0", "pointer-events-none");
-
-            setTimeout(() => {
-                document.getElementById("step-dicom").classList.replace("text-slate-600", "text-emerald-400");
-                status.innerText = "STATUS: PROCESSING CLAHE...";
-                img.src = "https://unsplash.com";
-                img.classList.remove("hidden");
-                
-                setTimeout(() => {
-                    document.getElementById("step-clahe").classList.replace("text-slate-600", "text-emerald-400");
-                    status.innerText = "STATUS: DEPLOYING NEURAL NET...";
-                    img.classList.remove("opacity-40"); 
-                    
-                    setTimeout(() => {
-                        document.getElementById("step-inference").classList.replace("text-slate-600", "text-emerald-400");
-                        document.getElementById("ai-boxes-overlay").classList.remove("opacity-0");
-                        status.innerText = "STATUS: PENDING VALIDATION";
-                        status.classList.replace("text-amber-400", "text-red-400");
-                        document.getElementById("verification-card-board").classList.remove("hidden");
-                    }, 1500);
-                }, 1200);
-            }, 1000);
-        }
-
-        function verifyPipelineProgress() {
-            if (approvalCounts >= 2) {
-                const btn = document.getElementById("pdf-download-btn");
-                btn.removeAttribute("disabled");
-                btn.classList.replace("bg-slate-800", "bg-blue-600");
-                btn.classList.replace("text-slate-500", "text-white");
-                btn.classList.replace("cursor-not-allowed", "hover:bg-blue-500");
-                btn.innerHTML = `<i class="fa-solid fa-file-pdf"></i> Download Signed Clinical PDF Report`;
-                
-                const status = document.getElementById("viewport-status");
-                status.innerText = "STATUS: ANALYSIS READY";
-                status.classList.replace("text-red-400", "text-emerald-400");
-            }
-        }
-
-        function approveFinding(id) {
-            const card = document.getElementById(`finding-card-${id}`);
-            const badge = document.getElementById(`badge-status-${id}`);
+            // STEP 3: Successful payload assimilation validation check
+            document.getElementById("step-inference").className = "flex items-center gap-3 text-emerald-400 transition-colors duration-300";
+            document.getElementById("ai-boxes-overlay").classList.remove("opacity-0");
+            img.classList.remove("opacity-40"); // Clear processing masks
             
-            card.classList.replace("border-slate-900", "border-emerald-900/50");
-            card.classList.add("bg-emerald-950/10");
-            badge.innerText = "Approved";
-            badge.classList.replace("border-blue-900", "border-emerald-800");
-            badge.classList.replace("bg-blue-950/60", "bg-emerald-950/50");
-            badge.classList.replace("text-blue-400", "text-emerald-400");
+            status.innerText = "STATUS: PENDING VALIDATION";
+            status.className = "text-[11px] font-mono text-red-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
             
-            approvalCounts++;
-            verifyPipelineProgress();
-        }
+            // Trigger operational UI control panels into tracking modes
+            document.getElementById("verification-card-board").classList.remove("hidden");
+            updatePdfButtonState();
 
-        function rejectFinding(id) {
-            const card = document.getElementById(`finding-card-${id}`);
-            card.classList.add("opacity-30", "pointer-events-none");
-            
-            approvalCounts++;
-            verifyPipelineProgress();
+        } catch (error) {
+            status.innerText = "STATUS: PIPELINE EXCEPTION";
+            status.className = "text-[11px] font-mono text-red-500 border border-red-900 bg-red-950/40 px-2 py-0.5 rounded";
+            console.error("API critical disconnection crash logs:", error);
         }
+    };
 
-        function downloadPdfSimulated() {
-            alert("SUCCESS:\n\nDoctor authentication token signed and validated.\n\nThe clinical 32-tooth report data array has been bundled and locked. Compilation pipeline finished without errors.");
-        }
+    fileInput.click();
+}
+
+function updatePdfButtonState() {
+    const btn = document.getElementById("pdf-download-btn");
+    btn.removeAttribute("disabled");
+    btn.className = "w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold tracking-wide transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/20";
+    btn.innerHTML = `<i class="fa-solid fa-file-pdf"></i> Download Signed Clinical PDF Report`;
+    
+    const status = document.getElementById("viewport-status");
+    status.innerText = "STATUS: REPORT COMPILED";
+    status.className = "text-[11px] font-mono text-emerald-400 border border-blue-900 bg-blue-950/40 px-2 py-0.5 rounded";
+}
+
+async function approveFinding(id) {
+    if (!currentReportData) return;
+    const card = document.getElementById(`finding-card-${id}`);
+    const badge = document.getElementById(`badge-status-${id}`);
+    
+    card.className = "bg-emerald-950/10 border border-emerald-900/50 rounded-xl p-3 flex flex-col justify-between gap-3 transition";
+    badge.innerText = "Approved";
+    badge.className = "text-[9px] uppercase tracking-wider border border-emerald-800 bg-emerald-950/50 text-emerald-400 font-bold px-1.5 py-0.5 rounded";
+
+    // Update real Pydantic structural reference properties in local state scope
+    const targetTooth = id === 1 ? 16 : 48;
+    currentReportData.findings.forEach(f => {
+        if (f.tooth_number === targetTooth) f.status = "DOCTOR_APPROVED";
+    });
+}
+
+async function rejectFinding(id) {
+    if (!currentReportData) return;
+    const card = document.getElementById(`finding-card-${id}`);
+    card.className = "bg-slate-950 border border-slate-900 rounded-xl p-3 flex flex-col justify-between gap-3 transition opacity-30 pointer-events-none";
+
+    const targetTooth = id === 1 ? 16 : 48;
+    currentReportData.findings.forEach(f => {
+        if (f.tooth_number === targetTooth) f.status = "DOCTOR_REJECTED";
+    });
+}
+
+async function downloadPdfSimulated() {
+    if (!currentReportData) return;
+    
+    try {
+        // Enforce formal digital signature fields inside payload schemas
+        currentReportData.is_doctor_approved = true;
+        currentReportData.approved_by_doctor_name = "Dr. XX, DDS";
+        currentReportData.diploma_number = "DIP-2026-9912";
+
+        // Dispatch state array objects back down server infrastructure pipeline vectors
+        const response = await fetch(`${API_BASE_URL}/api/v1/report/compile`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(currentReportData)
+        });
+
+        if (!response.ok) throw new Error("PDF generator engine failed to render payload configurations.");
+
+        // Pipe downstream network streaming buffer variables directly into local system file downloads
+        const pdfBlob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(pdfBlob);
+        const link = document.createElement("a");
+        link.href = downloadUrl;
+        link.download = `signed_report_${currentReportData.report_id}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+    } catch (error) {
+        alert("CRITICAL ERROR: Failed to pipeline data array packages into PDF compilation engines.");
+        console.error(error);
+    }
+}
     </script>
 </body>
 </html>

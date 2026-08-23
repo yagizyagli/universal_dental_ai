@@ -1,0 +1,9 @@
+path: /workspaces/universal_dental_ai/dataset
+train: images/train
+val: images/val
+
+names:
+  0: Tooth
+  1: Caries
+  2: Impacted_Tooth
+  3: Periapical_Lesion
