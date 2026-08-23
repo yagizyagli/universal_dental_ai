@@ -27,14 +27,16 @@ def test_fdi_sorting_logic_consistency():
     """Ensures spatial coordinate mapping correctly separates maxilla (upper) from mandible (lower)."""
     engine = DentalInferenceEngine()
     
-    # Simulate 2 distinct bounding boxes: One clearly on top, one on bottom
-    mock_boxes = [,  # Upper left zone
-        [200, 750, 250, 850]   # Lower left zone
-    ]
+    # Coordinates built explicitly using raw primitive arrays to enforce strict syntax parsing
+    box_upper_jaw = [100, 300, 190, 500]
+    box_lower_jaw = [100, 600, 190, 800]
+    
+    # Combined master list construct for spatial mapping calculations
+    mock_boxes = [box_upper_jaw, box_lower_jaw]
     
     fdi_results = engine.generate_fdi_mapping(mock_boxes)
     
-    # Box 1 (Y=150) must be mapped to upper jaw (Quadrant 1 or 2 -> tens digit 1 or 2)
-    assert fdi_results[0] in range(11, 29)
-    # Box 2 (Y=750) must be mapped to lower jaw (Quadrant 3 or 4 -> tens digit 3 or 4)
-    assert fdi_results[1] in range(31, 49)
+    # Box 1 (Y=300) must be mapped to upper jaw (Quadrant 1 or 2 -> tens digit 1 or 2)
+    assert 11 <= fdi_results[0] <= 28
+    # Box 2 (Y=600) must be mapped to lower jaw (Quadrant 3 or 4 -> tens digit 3 or 4)
+    assert 31 <= fdi_results[1] <= 48
